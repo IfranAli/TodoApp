@@ -19,48 +19,11 @@ struct TaskEditView: View {
 	@State var state: TaskState = .todo
 	
 	var body: some View {
-		VStack(alignment: .leading, spacing: 20) {
+		VStack(alignment: .leading, spacing: 16) {
 			
-			VStack(alignment: .leading, spacing: 10) {
+			HStack {
 				TextField("Task title", text: $name)
-					.font(.title3)
-				
-				Divider()
-				
-				VStack {
-					TextEditor(text: $summary)
-						.font(.callout)
-						.scrollContentBackground(.hidden)
-						.clipShape(RoundedRectangle(cornerRadius: 10))
-						.background(Color.uiBackground)
-						.cornerRadius(10)
-				}
-				
-			}
-			
-			HStack {
-				PriorityPicker(selectedPriority: $priority)
-					.pickerStyle(.menu)
-				
-				Picker("State", selection: $state) {
-					ForEach(TaskState.allCases) { state in
-						Text(state.description).tag(state)
-					}
-				}
-			}
-			
-			HStack {
-				
-				Button("Dismiss") {
-					withAnimation {
-						dismiss()
-					}
-				}
-				.padding(8)
-				.cornerRadius(10)
-				
 				Spacer()
-				
 				Button("Save") {
 					withAnimation {
 						task.name = name
@@ -75,11 +38,32 @@ struct TaskEditView: View {
 				}
 			}
 			
+			Divider()
+			
+			VStack {
+				TextEditor(text: $summary)
+					.font(.callout)
+					.scrollContentBackground(.hidden)
+					.clipShape(RoundedRectangle(cornerRadius: 10))
+					.cornerRadius(10)
+			}
+			
+			HStack(alignment: .top, spacing: 0) {
+				PriorityPicker(selectedPriority: $priority)
+					.pickerStyle(.menu)
+				
+				Spacer()
+				
+				Picker("State", selection: $state) {
+					ForEach(TaskState.allCases) { state in
+						Text(state.description).tag(state)
+					}
+				}
+			}.padding(0)
+			
 		}
-		.padding(20)
+		.padding()
 		.background(Color.appBackground)
-		.onDisappear() {
-		}
 		.onAppear() {
 			self.name = task.name ?? ""
 			self.summary = task.summary ?? ""

@@ -26,6 +26,8 @@
 		BCDF32252B6721F40009744B /* ProjectExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF32242B6721F40009744B /* ProjectExt.swift */; };
 		BCDF32272B672D8B0009744B /* PriorityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF32262B672D8B0009744B /* PriorityView.swift */; };
 		BCDF32292B6736E70009744B /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF32282B6736E70009744B /* DateUtil.swift */; };
+		BCFB24C62B6A1A0900E442A7 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB24C52B6A1A0900E442A7 /* Dashboard.swift */; };
+		BCFB24C82B6A226700E442A7 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB24C72B6A226700E442A7 /* ProjectsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		BCDF32242B6721F40009744B /* ProjectExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectExt.swift; sourceTree = "<group>"; };
 		BCDF32262B672D8B0009744B /* PriorityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityView.swift; sourceTree = "<group>"; };
 		BCDF32282B6736E70009744B /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		BCFB24C52B6A1A0900E442A7 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		BCFB24C72B6A226700E442A7 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 				BCC5A6C82B60C6FA00C1E20D /* ProjectEdit.swift */,
 				BCC5A6CA2B60D62000C1E20D /* TaskEditView.swift */,
 				BCDF32172B61F0890009744B /* TaskListItemView.swift */,
+				BCFB24C52B6A1A0900E442A7 /* Dashboard.swift */,
+				BCFB24C72B6A226700E442A7 /* ProjectsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,8 +230,10 @@
 			files = (
 				BCC5A6B92B60A4D100C1E20D /* Persistence.swift in Sources */,
 				BCDF32202B6394EC0009744B /* TaskState.swift in Sources */,
+				BCFB24C82B6A226700E442A7 /* ProjectsView.swift in Sources */,
 				BCC5A6CB2B60D62000C1E20D /* TaskEditView.swift in Sources */,
 				BCC5A6CD2B60DA1400C1E20D /* CoreDataUtility.swift in Sources */,
+				BCFB24C62B6A1A0900E442A7 /* Dashboard.swift in Sources */,
 				BCC5A6C52B60AAC200C1E20D /* ProjectListItemView.swift in Sources */,
 				BCDF32292B6736E70009744B /* DateUtil.swift in Sources */,
 				BCC5A6B22B60A4CF00C1E20D /* ContentView.swift in Sources */,

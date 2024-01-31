@@ -12,7 +12,8 @@ struct ProjectListItemView: View {
 	@State var project: Project
 	
 	private var completed: Int {
-		return project.task?.filtered(using: NSPredicate(format: "state = 0")).count ?? 0
+		return project.task?.filtered(using:
+			NSPredicate(format: "state = \(TaskState.done.rawValue)")).count ?? 0
 	}
 	
 	private var tasksCount : Int {

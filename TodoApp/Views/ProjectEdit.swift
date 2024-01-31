@@ -21,11 +21,13 @@ struct ProjectEdit: View {
 		VStack(alignment: .leading, spacing: 16) {
 			
 			HStack {
-				Text("").font(.callout).bold().foregroundStyle(.link)
 				ColorPicker("Color", selection: $selectedColor)
 				.labelsHidden()
 				
 				Spacer()
+				
+				TextField("Title", text: $name)
+					.textFieldStyle(.plain)
 				
 				Button("Save") {
 					withAnimation {
@@ -46,25 +48,21 @@ struct ProjectEdit: View {
 				}
 			}
 			
-			TextField("Title", text: $name)
-				.textFieldStyle(.roundedBorder)
+			Divider()
 			
 			TextEditor(text: $summary)
-				.textFieldStyle(.roundedBorder)
+				.font(.callout)
+				.scrollContentBackground(.hidden)
+				.clipShape(RoundedRectangle(cornerRadius: 10))
 				.cornerRadius(10)
 			
 			VStack {
-				
-				GroupBox {
-					HStack {
-						Text("Priority: ").font(.callout).bold()
-						PriorityPicker(selectedPriority: $priority)
-							.pickerStyle(.menu)
-						
-						Spacer()
-					}
+				HStack {
+					PriorityPicker(selectedPriority: $priority)
+						.pickerStyle(.menu)
+					
+					Spacer()
 				}
-				
 			}
 			
 		}

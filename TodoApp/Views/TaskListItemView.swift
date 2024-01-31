@@ -57,6 +57,7 @@ struct TaskListItemView: View {
 				}
 				.font(.caption)
 				.foregroundColor(.secondary)
+				.padding(.top, 1)
 			}
 			Spacer()
 			
