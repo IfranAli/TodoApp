@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0381C22B76011900E0B58A /* DashboardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0381C12B76011900E0B58A /* DashboardSettings.swift */; };
 		BCC5A6B02B60A4CF00C1E20D /* TodoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A6AF2B60A4CF00C1E20D /* TodoAppApp.swift */; };
 		BCC5A6B22B60A4CF00C1E20D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A6B12B60A4CF00C1E20D /* ContentView.swift */; };
 		BCC5A6B42B60A4D000C1E20D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC5A6B32B60A4D000C1E20D /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC0381C12B76011900E0B58A /* DashboardSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSettings.swift; sourceTree = "<group>"; };
 		BCC5A6AC2B60A4CF00C1E20D /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC5A6AF2B60A4CF00C1E20D /* TodoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppApp.swift; sourceTree = "<group>"; };
 		BCC5A6B12B60A4CF00C1E20D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				BCDF32172B61F0890009744B /* TaskListItemView.swift */,
 				BCFB24C52B6A1A0900E442A7 /* Dashboard.swift */,
 				BCFB24C72B6A226700E442A7 /* ProjectsView.swift */,
+				BC0381C12B76011900E0B58A /* DashboardSettings.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				BCC5A6B92B60A4D100C1E20D /* Persistence.swift in Sources */,
 				BCDF32202B6394EC0009744B /* TaskState.swift in Sources */,
 				BCFB24C82B6A226700E442A7 /* ProjectsView.swift in Sources */,
+				BC0381C22B76011900E0B58A /* DashboardSettings.swift in Sources */,
 				BCC5A6CB2B60D62000C1E20D /* TaskEditView.swift in Sources */,
 				BCC5A6CD2B60DA1400C1E20D /* CoreDataUtility.swift in Sources */,
 				BCFB24C62B6A1A0900E442A7 /* Dashboard.swift in Sources */,

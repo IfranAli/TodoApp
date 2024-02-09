@@ -70,6 +70,14 @@ struct PersistenceController {
 		task4.priority = Int16(Priority.high.rawValue)
 		task4.created = DateUtility.dateFromStr(dateStr: "26/01/2024 11:30");
 		task4.state = Int16(TaskState.blocked.rawValue)
+		
+		let task5 = Task(context: viewContext)
+		task5.origin = project2
+		task5.name = "Task 5 project 2"
+		task5.summary = "Task 5 summary"
+		task5.priority = Int16(Priority.high.rawValue)
+		task5.created = DateUtility.dateFromStr(dateStr: "26/01/2024 11:30");
+		task5.state = Int16(TaskState.todo.rawValue)
 
         do {
             try viewContext.save()

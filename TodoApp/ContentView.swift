@@ -20,9 +20,7 @@ struct ContentView: View {
 				Label("Dashboard", systemImage: "chart.bar")
 			}
 				
-			NavigationStack {
-				ProjectsView()
-			}
+			ProjectsView()
 			.tabItem {
 				Label("Projects", systemImage: "list.bullet")
 			}
