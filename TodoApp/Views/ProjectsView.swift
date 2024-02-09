@@ -14,58 +14,43 @@ struct ProjectsView: View {
 	@FetchRequest(
 		sortDescriptors: [NSSortDescriptor(keyPath: \Project.created, ascending: true)],
 		animation: .default)
-	
 	private var items: FetchedResults<Project>
+	
+	// For stack navigation.
+	@State private var path = NavigationPath()
 
 	var body: some View {
+		NavigationStack(path: $path) {
 		
-		VStack(alignment: .leading, spacing: 0) {
-			
-			// Heading
 			VStack(alignment: .leading, spacing: 0) {
-				Text("Manage your projects.")
-					.foregroundColor(.secondary)
 				
-				HStack {
-					// Required spacer for UI effect.
-					Spacer()
-				}
-			}
-			.padding(.horizontal)
-			.padding(.bottom, 30)
-			.background(Color.card)
-			.onAppear() {
-			}
-			
-			List() {
-				ForEach(items.indices, id: \.self) { idx in
-					NavigationLink(value: items[idx]) {
-						ProjectListItemView(project: items[idx])
+				List(items) { item in
+					Button {
+						path.append(item)
+					} label: {
+						ProjectListItemView(project: item)
 					}
 					.listRowSeparator(.hidden)
-					.listRowBackground(idx % 2 == 0 ? Color.appBackground : Color.uiBackground)
-					.listRowInsets(EdgeInsets())
-					.padding(14)
+					.listRowBackground(Color.clear)
+
 				}
-			}
-			
-			.padding(.top, 12)
-			
-			.navigationDestination(for: Project.self) { project in
-				ProjectDetailView(project: project)
-			}
-			.scrollContentBackground(.hidden)
-			.listStyle(.plain)
-			.navigationTitle("Projects")
-			.toolbar {
-				ToolbarItem {
-					Button(action: addItem) {
-						Label("Add Item", systemImage: "plus")
+				.scrollContentBackground(.hidden)
+				.listStyle(.plain)
+				.padding(.top, 12)
+				.navigationDestination(for: Project.self) { project in
+					ProjectDetailView(project: project)
+				}
+				.navigationTitle("Projects")
+				.toolbar {
+					ToolbarItem {
+						Button(action: addItem) {
+							Label("Add Item", systemImage: "plus")
+						}
 					}
 				}
 			}
+			
 		}
-		.background(Color.appBackground)
 	}
 	
 	private func addItem() {
@@ -91,8 +76,6 @@ struct ProjectsView: View {
 
 
 #Preview {
-	NavigationStack {
-		ProjectsView()
-			.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-	}
+	ProjectsView()
+		.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

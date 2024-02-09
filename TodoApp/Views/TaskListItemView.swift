@@ -19,6 +19,9 @@ struct TaskListItemView: View {
 			VStack(alignment: .leading) {
 				
 				HStack {
+					RoundedRectangle(cornerRadius: 4)
+						.fill(task.origin?.projectColor.opacity(0.8) ?? .card)
+					.frame(width: 15, height: 15)
 					
 					if state == .done {
 						Text(task.name ?? "Untitled")
@@ -29,9 +32,9 @@ struct TaskListItemView: View {
 						Text(task.name ?? "Untitled")
 							.font(.callout)
 					}
-					
+						
 					Spacer()
-					
+						
 					Text(state.description)
 						.bold()
 						.foregroundStyle(state.color)
@@ -50,7 +53,6 @@ struct TaskListItemView: View {
 					Spacer()
 					
 					if let date = task.created {
-						Image(systemName: "clock")
 						Text(DateUtility.format(date: date))
 					}
 					
@@ -59,9 +61,11 @@ struct TaskListItemView: View {
 				.foregroundColor(.secondary)
 				.padding(.top, 1)
 			}
-			Spacer()
-			
 		}
+		.bold()
+		.padding(12)
+		.background(Color.card)
+		.cornerRadius(10)
 	}
 }
 
@@ -72,6 +76,7 @@ struct TaskListItemView: View {
 	
 	if let firstTask = (project.task?.allObjects as! [Task]).first {
 		return TaskListItemView(task: .constant(firstTask))
+			.padding()
 	}
 	
 	return EmptyView()

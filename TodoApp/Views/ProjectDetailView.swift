@@ -86,7 +86,7 @@ struct ProjectDetailView: View {
 	init(project: Project) {
 		_viewModel = StateObject(wrappedValue: ProjectDetailViewModel(project: project))
 	}
-	
+		
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
 			
@@ -94,23 +94,16 @@ struct ProjectDetailView: View {
 			//
 			VStack(alignment: .leading, spacing: 5) {
 				
-				Text(viewModel.project.name ?? "").font(.title)
-				Text(viewModel.project.summary ?? "").foregroundColor(.secondary)
-				
-				HStack {
-					// Required spacer for UI effect.
-					Spacer()
-				}
+				Text(viewModel.project.summary ?? "")
+					.foregroundColor(.secondary)
+					.font(.callout).bold()
 				
 			}
-			.padding(.horizontal)
-			.padding(.bottom, 30)
-			.background(Color.card)
+			.padding()
 			
 			// Content
 			//
 			VStack {
-				//	EditButton()
 				
 				List() {
 					ForEach($viewModel.tasks.indices, id: \.self) { idx in
@@ -121,9 +114,7 @@ struct ProjectDetailView: View {
 							TaskListItemView(task: $viewModel.tasks[idx])
 						}
 						.listRowSeparator(.hidden)
-						.listRowBackground(idx % 2 == 0 ? Color.appBackground : Color.uiBackground)
-						.listRowInsets(EdgeInsets())
-						.padding(14)
+						.listRowBackground(Color.clear)
 					}
 					.onDelete(perform: { indexSet in
 						viewModel.deleteTask(at: indexSet)
@@ -134,7 +125,6 @@ struct ProjectDetailView: View {
 			}
 			
 		}
-		.background(Color.appBackground)
 		.onAppear() {
 			viewModel.fetchTasks()
 		}
@@ -155,25 +145,34 @@ struct ProjectDetailView: View {
 		.navigationTitle(viewModel.project.name ?? "Untitled Project")
 		.navigationBarTitleDisplayMode(.inline)
 		.toolbar {
-			ToolbarItem(placement: .bottomBar) {
-				Button("Edit Project") {
-					showingEditProjectSheet.toggle()
-				}
-			}
-			ToolbarItem(placement: .bottomBar) {
-				Button("Add Task") {
+			ToolbarItem(placement: .primaryAction) {
+				Button(action: {
 					let task = viewModel.addTask()
 					selectedTask = task
 					
+				}) {
+					Label("Add Task", systemImage: "plus")
 				}
 			}
-			ToolbarItem(placement: .destructiveAction) {
-				Button("Delete") {
+			
+			ToolbarItem(placement: .secondaryAction) {
+				Button(action: {
+						showingEditProjectSheet.toggle()
+				}) {
+					Label("Edit", systemImage: "pencil")
+				}
+			}
+			
+			ToolbarItem(placement: .secondaryAction) {
+				Button(action: {
 					viewModel.deleteProject()
 					dismiss()
+					
+				}) {
+					Label("Delete", systemImage: "minus").foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
 				}
-				.tint(.red)
 			}
+			
 		}
 		
 	}

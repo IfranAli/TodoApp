@@ -17,8 +17,6 @@ struct PriorityView: View {
 	var body: some View {
 		
 		HStack(alignment: .bottom, spacing: 2) {
-			Image(systemName: "arrow.up.arrow.down.square")
-//				.foregroundColor(.secondary)
 			Text(priority.description)
 		}
 		.foregroundStyle(priority.color)

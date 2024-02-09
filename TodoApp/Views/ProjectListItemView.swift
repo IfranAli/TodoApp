@@ -27,16 +27,20 @@ struct ProjectListItemView: View {
 	var body: some View {
 		HStack {
 			
-			RoundedRectangle(cornerRadius: 2)
-				.fill(project.projectColor)
-				.frame(width: 10, height: 70)
-			
 			VStack(alignment: .leading) {
 				
 				// Task counter
 				HStack {
-					Text(project.name ?? "Untitled")
-						.font(.callout)
+					
+					HStack {
+						RoundedRectangle(cornerRadius: 4)
+							.fill(project.projectColor.opacity(0.8))
+						.frame(width: 15, height: 15)
+						
+						Text(project.name ?? "Untitled")
+							.font(.callout)
+					}
+					
 					
 					Spacer()
 					
@@ -68,10 +72,11 @@ struct ProjectListItemView: View {
 				.font(.caption)
 				.foregroundColor(Color.secondary)
 			}
+			.padding(12)
+			.background(Color.card)
+			.cornerRadius(10)
 		}
-//		.padding(12)
-//		.background(Color.uiBackground)
-//		.clipShape(RoundedRectangle(cornerRadius: 10))
+		.bold()
 	}
 	
 }
