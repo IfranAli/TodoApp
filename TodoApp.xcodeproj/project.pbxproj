@@ -19,6 +19,7 @@
 		BCC5A6C92B60C6FA00C1E20D /* ProjectEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A6C82B60C6FA00C1E20D /* ProjectEdit.swift */; };
 		BCC5A6CB2B60D62000C1E20D /* TaskEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A6CA2B60D62000C1E20D /* TaskEditView.swift */; };
 		BCC5A6CD2B60DA1400C1E20D /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A6CC2B60DA1400C1E20D /* CoreDataUtility.swift */; };
+		BCC8CB412B8B2CBA004C5148 /* PersistentContainerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC8CB402B8B2CBA004C5148 /* PersistentContainerExt.swift */; };
 		BCDF32182B61F0890009744B /* TaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF32172B61F0890009744B /* TaskListItemView.swift */; };
 		BCDF321B2B63362E0009744B /* PriorityPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF321A2B63362E0009744B /* PriorityPicker.swift */; };
 		BCDF321E2B6337B10009744B /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF321D2B6337B10009744B /* Priority.swift */; };
@@ -45,6 +46,7 @@
 		BCC5A6C82B60C6FA00C1E20D /* ProjectEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEdit.swift; sourceTree = "<group>"; };
 		BCC5A6CA2B60D62000C1E20D /* TaskEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditView.swift; sourceTree = "<group>"; };
 		BCC5A6CC2B60DA1400C1E20D /* CoreDataUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
+		BCC8CB402B8B2CBA004C5148 /* PersistentContainerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainerExt.swift; sourceTree = "<group>"; };
 		BCDF32172B61F0890009744B /* TaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListItemView.swift; sourceTree = "<group>"; };
 		BCDF321A2B63362E0009744B /* PriorityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityPicker.swift; sourceTree = "<group>"; };
 		BCDF321D2B6337B10009744B /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				BCDF32222B6721A70009744B /* Color.swift */,
 				BCDF32242B6721F40009744B /* ProjectExt.swift */,
+				BCC8CB402B8B2CBA004C5148 /* PersistentContainerExt.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				BCFB24C62B6A1A0900E442A7 /* Dashboard.swift in Sources */,
 				BCC5A6C52B60AAC200C1E20D /* ProjectListItemView.swift in Sources */,
 				BCDF32292B6736E70009744B /* DateUtil.swift in Sources */,
+				BCC8CB412B8B2CBA004C5148 /* PersistentContainerExt.swift in Sources */,
 				BCC5A6B22B60A4CF00C1E20D /* ContentView.swift in Sources */,
 				BCC5A6B02B60A4CF00C1E20D /* TodoAppApp.swift in Sources */,
 				BCDF321B2B63362E0009744B /* PriorityPicker.swift in Sources */,

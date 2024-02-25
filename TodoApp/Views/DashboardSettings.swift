@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct DashboardSettings: View {
+    @Environment(\.managedObjectContext) private var viewContext
+	
 	@Binding private var focusedProject: Project?
 	
 	@FetchRequest(
 		sortDescriptors: [NSSortDescriptor(keyPath: \Project.created, ascending: true)],
 		animation: .default)
 	private var items: FetchedResults<Project>
-	
+		
 	init(focusedProject: Binding<Project?>) {
 		_focusedProject = focusedProject
 	}
@@ -30,7 +32,7 @@ struct DashboardSettings: View {
 						
 						// Default selection
 						Text("All")
-						.tag(Optional<Project>(nil))
+						.tag(nil as Project?)
 						
 						ForEach(items) { project in
 							Text(project.name ?? "Unkown")
@@ -45,6 +47,10 @@ struct DashboardSettings: View {
 		}
 		.navigationTitle("Settings")
 		.toolbarTitleDisplayMode(.inline)
+		.onDisappear {
+			// Save the focused project to UserDefaults when the view disappears
+			PersistenceController.shared.container.focusedProject = self.focusedProject
+		}
 	}
 }
 

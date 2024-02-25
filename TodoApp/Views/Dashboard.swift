@@ -12,10 +12,14 @@ extension Dashboard {
 	class DashboardViewModel: ObservableObject {
 		@Published var tasks: [Task] = []
 		
-		var focusedProject: Project?
-		
+		@Published var focusedProject: Project?
 		
 		init() {
+			print("Init")
+			if let focus = PersistenceController.shared.container.focusedProject {
+				setFocusedProject(project: focus)
+			}
+			
 		}
 		
 		func setFocusedProject(project: Project) -> Void {
@@ -32,7 +36,6 @@ extension Dashboard {
 			
 			if let focusedProject = focusedProject {
 				let projectFilter = NSPredicate(format: "origin == %@", argumentArray: [focusedProject])
-				print(projectFilter.description)
 				predicates.append(projectFilter)
 			}
 			
@@ -57,7 +60,6 @@ struct Dashboard: View {
 	@StateObject private var viewmodel: DashboardViewModel
 	
 	@State private var selectedTask: Task? = nil
-	@State private var focusedProject: Project?
 	
 	init() {
 		_viewmodel = StateObject(wrappedValue: DashboardViewModel())
@@ -67,7 +69,7 @@ struct Dashboard: View {
 		VStack(alignment: .leading) {
 			
 			HStack {
-				Text(self.focusedProject?.name ?? "Showing All")
+				Text(viewmodel.focusedProject?.name ?? "Showing All")
 			}
 			.padding()
 			
@@ -97,15 +99,6 @@ struct Dashboard: View {
 			viewmodel.fetchTasks(context: viewContext)
 		}
 		
-		// On change events
-		//
-		.onChange(of: self.focusedProject, {
-			if let focused = self.focusedProject {
-				viewmodel.setFocusedProject(project: focused)
-				viewmodel.fetchTasks(context: viewContext)
-			}
-		})
-		
 		// Navigaton and Toolbar
 		//
 		.navigationTitle("Priority Tasks")
@@ -113,7 +106,7 @@ struct Dashboard: View {
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
 				NavigationLink(destination: {
-					DashboardSettings(focusedProject: self.$focusedProject)
+					DashboardSettings(focusedProject: $viewmodel.focusedProject)
 				}) {
 					Label("Settings", systemImage: "gear")
 				}
